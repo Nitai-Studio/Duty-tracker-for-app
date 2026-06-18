@@ -14,42 +14,28 @@ android {
     applicationId = "com.aistudio.dutytrackerpro.fytkpq"
     minSdk = 24
     targetSdk = 36
-    versionCode = 1
-    versionName = "1.0"
+    versionCode = 116
+    versionName = "116"
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
 
-  signingConfigs {
-    create("release") {
-      val keystorePath = System.getenv("KEYSTORE_PATH") ?: "${rootDir}/my-upload-key.jks"
-      storeFile = file(keystorePath)
-      storePassword = System.getenv("STORE_PASSWORD")
-      keyAlias = "upload"
-      keyPassword = System.getenv("KEY_PASSWORD")
-    }
-    create("debugConfig") {
-      storeFile = file("${rootDir}/debug.keystore")
-      storePassword = "android"
-      keyAlias = "androiddebugkey"
-      keyPassword = "android"
-    }
-  }
+  // Removed signingConfigs block entirely - using default debug signing
 
   buildTypes {
     release {
       isCrunchPngs = false
       isMinifyEnabled = false
       proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-      signingConfig = signingConfigs.getByName("release")
+      // Removed signingConfig - will use default debug signing
     }
     debug {
-      signingConfig = signingConfigs.getByName("debugConfig")
+      // No explicit signingConfig - uses default debug keystore
     }
   }
   compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_17  // Changed from VERSION_11 to VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17  // Changed from VERSION_11 to VERSION_17
   }
   buildFeatures {
     compose = true

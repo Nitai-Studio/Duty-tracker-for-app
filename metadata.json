@@ -1,0 +1,6 @@
+{
+  "name": "Duty Tracker Pro",
+  "description": "Premium duty and attendance tracker with India Language Support, salary calculations, and advance management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
